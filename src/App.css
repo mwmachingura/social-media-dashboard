@@ -1,0 +1,10 @@
+* {
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bg-instagram {
+    background: linear-gradient(0.25turn, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
