@@ -1,21 +1,6 @@
 # Frontend Mentor - Social media dashboard with theme switcher solution
 
-This is a solution to the [Social media dashboard with theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H). Frontend Mentor challenges help you improve your coding skills (Mostly front end related) by building realistic projects. 
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
+This is a solution to the [Social media dashboard with theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H). Frontend Mentor challenges help you improve your coding skills (Mostly front end related) by building realistic projects.
 
 ## Overview
 
@@ -26,10 +11,6 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Toggle color theme to their preference
-
-### Screenshot
-
-![](./screenshot.jpg)
 
 ### Links
 
@@ -45,55 +26,57 @@ Users should be able to:
 -[HeadlessUI](https://headlessui.dev/) - React styled components by Tailwind CSS
 -Mobile-first Workflow
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Using tailwind CSS, learning to extend or overwrite some of the built in variables such as color and sizes, as well as creating new variables that make a new specific utility or component is an awesome way to simplify writing CSS and using custom styles. Especially in repetitive situtations, the following helped me use colors over and over again, and apply a tenary easily for the color alone:  
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+theme: {
+    extend: {
+      letterSpacing: {
+        'large': '0.25em',
+      },
+      colors: {
+        'limegreen': 'hsl(163, 72%, 41%)',
+        'brightred': 'hsl(356, 69%, 56%)',
+        'facebook': 'hsl(208, 92%, 53%)',
+        'twitter': 'hsl(203, 89%, 53%)',
+        'instagram': 'linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%))',
+        'youtube': 'hsl(348, 97%, 39%)',
+        // Dark Theme
+        'toggle-dark': 'linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%)',
+        'background-dark': 'hsl(230, 17%, 14%)',
+        'topbackground-dark': 'hsl(232, 19%, 15%)',
+        'cardbackground-dark': 'hsl(228, 28%, 20%)',
+        'text-dark': 'hsl(228, 34%, 66%)',
+        // Light Theme
+        'toggle': 'hsl(230, 22%, 74%)',
+        'topbackground': 'hsl(225, 100%, 98%)',
+        'cardbackground': 'hsl(227, 47%, 96%)',
+        'text': 'hsl(228, 12%, 44%)',
+        'dark-text': 'hsl(230, 17%, 14%)',
+      }
+    },
+  },
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Headless UI allowed use of the useState Hook and make the Switch for dark mode accessible easily, with minimal code. Checked takes the value to be used to determine the position of the switch, and onChange allows the state of the value of that passed at checked: 
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+```js
+<Switch 
+  checked={dark}
+  onChange={setDark}
+  className={`inline-flex py-2 px-1 md:ml-4 flex-shrink-0 border-none rounded-full transition-colors w-12 h-7 ease-in-out duration-200 focus:outline-none items-center ${dark ? 'bg-toggle-dark': 'bg-toggle hover:bg-toggle-dark hover:bg-none'}`}
+>
+  <span
+    className={`${
+      dark ? '-translate-x-1 bg-dark-text' : 'translate-x-6 bg-white hover:bg-dark-text'
+    } pointer-events-none shadow ring-0 transition ease-in-out duration-200 inline-block w-5 h-5 transform rounded-full`}
+  />
+</Switch>
+```
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/mwmachingura)
+- Twitter - [@yourusername](https://www.twitter.com/mutsamach)
