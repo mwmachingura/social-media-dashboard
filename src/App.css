@@ -8,3 +8,7 @@
 .bg-instagram {
     background: linear-gradient(0.25turn, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
 }
+
+.bg-toggle-dark {
+    background: linear-gradient(0.25turn, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
